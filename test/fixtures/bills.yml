@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  number: MyString
+  total_price: 1.5
+  payer_id: 1
+  partners_count: 1
+
+two:
+  number: MyString
+  total_price: 1.5
+  payer_id: 1
+  partners_count: 1
