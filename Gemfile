@@ -23,6 +23,7 @@ end
 
 gem 'jquery-rails'
 gem "thin"
+gem 'activeadmin'
 
 #group :development do
 #end
