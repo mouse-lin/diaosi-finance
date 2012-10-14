@@ -21,7 +21,7 @@ end
 
 gem 'jquery-rails'
 gem "thin"
-gem 'activeadmin'
+gem 'activeadmin', git: "git://github.com/gregbell/active_admin.git"
 
 group :development do
   gem 'mysql2'
