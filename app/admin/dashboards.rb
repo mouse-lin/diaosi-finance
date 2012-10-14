@@ -7,13 +7,13 @@ ActiveAdmin::Dashboards.build do
   # == Simple Dashboard Section
   # Here is an example of a simple dashboard section
   #
-  #   section "Recent Posts" do
-  #     ul do
-  #       Post.recent(5).collect do |post|
-  #         li link_to(post.title, admin_post_path(post))
-  #       end
-  #     end
-  #   end
+     section "Recent AdminUser" do
+       ul do
+         AdminUser.order('created_at DESC').collect do |u|
+           li link_to(u.name || u.email, admin_admin_user_path(u))
+         end
+       end
+     end
   
   # == Render Partial Section
   # The block is rendered within the context of the view, so you can
