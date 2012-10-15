@@ -5,4 +5,8 @@ class Bill < ActiveRecord::Base
 
   # FIXME mass_....
   attr_accessible :number, :partners_count, :payer_id, :total_price
+
+  def name
+    "#{number} : #{total_price}"
+  end
 end
