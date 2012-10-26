@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015001304) do
+ActiveRecord::Schema.define(:version => 20121026163236) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(:version => 20121015001304) do
     t.integer  "partners_count"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "partner_public_consumes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "bill_id"
+    t.float    "consume"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "private_consumes", :force => true do |t|

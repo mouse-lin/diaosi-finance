@@ -1,0 +1,32 @@
+div style='width: 48%; display: inline-block; float: left;'
+  span.label.label-warning Public Consumes
+  table.table.table-bordered
+    thead
+      tr
+        th
+        th Consumer
+        th Cost
+    tbody
+      - @bill.partner_public_consumes.each_with_index do |partner_public_consume,index|
+        tr
+          td 
+            span.badge.badge-warning = index
+          td = partner_public_consume.user.name
+          td = partner_public_consume.consume
+div style='width: 48%; display: inline-block; float: right;'
+  span.label.label-important Private Consumes
+  table.table.table-bordered
+    thead
+      tr
+        th
+        th Consumer
+        th Cost
+    tbody
+      - @bill.private_consumes.each_with_index do |private_consume,index|
+        tr
+          td 
+            span.badge.badge-important = index
+          td = private_consume.user.name
+          td = private_consume.cost
+
+.clear
