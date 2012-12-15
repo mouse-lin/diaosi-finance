@@ -10,6 +10,9 @@ class Bill < ActiveRecord::Base
 
   after_save :count_and_save_partner_public_consumes_price
 
+  scope :counted, where(counted: true)
+  scope :not_counted, where(counted: false)
+
   def name
     "#{number} $ #{total_price}"
   end
@@ -26,7 +29,7 @@ class Bill < ActiveRecord::Base
   end
 
   def self.user_ledger_by_end_time(end_time)
-    Bill.no_ledger.where()
+    Bill.not_counted.where("created_at < ?", end_time )
   end
 
 end

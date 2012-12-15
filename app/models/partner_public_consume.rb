@@ -7,6 +7,9 @@ class PartnerPublicConsume < ActiveRecord::Base
 
   validates :user_id, :uniqueness => { :scope => :bill_id, :message => "Are you sure lost this guy? Check it!" }
 
+  scope :counted, where(counted: true)
+  scope :not_counted, where(counted: false)
+
   after_create  :recount_bill_partner_public_sonsumers_price
   after_destroy :recount_bill_partner_public_sonsumers_price!
 
