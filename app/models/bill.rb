@@ -24,4 +24,9 @@ class Bill < ActiveRecord::Base
     average_public_consume = (total_price - private_consumes.sum(:cost)) / partner_public_consumes.count.to_f
     partner_public_consumes.update_all(:consume => average_public_consume)
   end
+
+  def self.user_ledger_by_end_time(end_time)
+    Bill.no_ledger.where()
+  end
+
 end
