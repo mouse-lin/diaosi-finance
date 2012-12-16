@@ -1,0 +1,23 @@
+div style='width: 90%;'
+  h3.label.label-warning Each User's LedgerItem
+  table.table.table-bordered
+    thead
+      tr
+        th
+        th Consumer
+        th PublicCost
+        th PrivateCost
+        th TotalCost
+        th TotalPay
+        th Blance
+    tbody
+      - @ledger.ledger_items.each_with_index do |ledger_item,index|
+        tr
+          td
+            span.badge.badge-warning = index
+          td = ledger_item.user.name
+          td = ledger_item.partner_public_consumes.sum(&:consume)
+          td = ledger_item.private_consumes.sum(&:cost)
+          td = ledger_item.price
+          td = ledger_item.pay_monery
+          td = ledger_item.pay_monery - ledger_item.price

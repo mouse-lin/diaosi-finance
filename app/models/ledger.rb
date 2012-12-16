@@ -4,6 +4,7 @@ class Ledger < ActiveRecord::Base
   has_many :ledger_items, autosave: true, dependent: :delete_all
 
   before_create :build_items
+  after_create :set_total_price
 
   def build_items
     User.all.each do |user|
@@ -20,6 +21,10 @@ class Ledger < ActiveRecord::Base
         bills: bills
       )
     end
+  end
+
+  def set_total_price
+    update_attribute(:total_price, ledger_items.sum(:price))
   end
 
 end
