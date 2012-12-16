@@ -7,6 +7,7 @@ ActiveAdmin.register PartnerPublicConsume do
     column :user
     column :bill
     column :consume
+    column :counted
     default_actions
   end
 
