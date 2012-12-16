@@ -28,8 +28,4 @@ class Bill < ActiveRecord::Base
     partner_public_consumes.update_all(:consume => average_public_consume)
   end
 
-  def self.user_ledger_by_end_time(end_time)
-    Bill.not_counted.where("created_at < ?", end_time )
-  end
-
 end
